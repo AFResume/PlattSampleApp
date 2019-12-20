@@ -1,0 +1,5 @@
+{
+	"films_url": "https://swapi.co/api/films",
+	"planets_url": "https://swapi.co/api/planets",
+	"vehicles_url": "https://swapi.co/api/vehicles"
+}

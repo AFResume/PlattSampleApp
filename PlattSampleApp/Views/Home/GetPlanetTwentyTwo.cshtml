@@ -1,0 +1,26 @@
+﻿@model PlattSampleApp.Models.SinglePlanetViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Details for Planet Number @Model.PlanetId</title>
+</head>
+<body>
+	<h3>Details for Planet Number @Model.PlanetId</h3>
+	<div>
+		<ul>
+			<li>Planet Name: @Model.Name</li>
+			<li>Length of Day: @Model.LengthOfDay hours</li>
+			<li>Length of Year: @Model.LengthOfYear days</li>
+			<li>Diameter: @Model.Diameter km</li>
+			<li>Climate: @Model.Climate</li>
+			<li>Gravity: @Model.Gravity</li>
+			<li>Surface Water: @Model.SurfaceWaterPercentage %</li>
+			@* AF: Parsing to Int64 was throwing an error for "unknown" values
+			<li>Population: @Int64.Parse(Model.Population).ToString("N0")</li>*@
+			<li>Population:@Model.Population</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@using PlattSampleApp.AppCode.Interfaces
+@model IEnumerable<IFilm>
+
+@{
+	ViewBag.Title = "Star Wars Films";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Star Wars Films</h2>
+
+<ul>
+	@foreach (IFilm f in Model.OrderBy(m => DateTime.Parse(m.ReleaseDate)))
+	{
+		<li class="li-padding-5"><strong>Episode @f.EpisodeId:</strong> @Html.ActionLink(@f.Title, "Details", new { id = f.GetFilmId() })</li>
+	}
+</ul>

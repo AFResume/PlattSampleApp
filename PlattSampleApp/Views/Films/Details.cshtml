@@ -1,0 +1,60 @@
+﻿@using PlattSampleApp.AppCode.Interfaces
+@model IFilm
+
+@{
+	ViewBag.Title = @Model.Title;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+<form class="form-horizontal">
+	@{
+		string colLabelCssClass = "col-sm-2 control-label";
+		string colDivCssClass = "col-sm-7 form-control-static";
+	}
+	<div class="form-group">
+		<label class="@colLabelCssClass">Episode #</label>
+		<div class="@colDivCssClass">@Model.EpisodeId</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass">Director</label>
+		<div class="@colDivCssClass">@Model.Director</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass">Producer</label>
+		<div class="@colDivCssClass">@Model.Producer</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass">Release Date</label>
+		<div class="@colDivCssClass">@DateTime.Parse(Model.ReleaseDate).ToString("dd-MMM-yy")</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass"># of Characters</label>
+		<div class="@colDivCssClass">@Model.CharacterProfileUrls.Count()</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass"># of Planets</label>
+		<div class="@colDivCssClass">@Model.PlanetProfileUrls.Count()</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass"># of Species</label>
+		<div class="@colDivCssClass">@Model.SpecieProfileUrls.Count()</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass"># of Starships</label>
+		<div class="@colDivCssClass">@Model.StarshipProfileUrls.Count()</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass"># of Vehicles</label>
+		<div class="@colDivCssClass">@Model.VehicleProfileUrls.Count()</div>
+	</div>
+	<div class="form-group">
+		<label class="@colLabelCssClass">Opening Crawl</label>
+		<div class="@colDivCssClass display:block">@Model.OpeningCrawl</div>
+	</div>
+</form>
+
+<div>
+	@Html.ActionLink("Go to All Films", "Index", "Films", null, new { @class = "btn btn-primary" })
+</div>
